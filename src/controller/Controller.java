@@ -30,7 +30,12 @@ public class Controller {
         System.out.println("insert pw : ");
         String pw = sc.nextLine();
         UserService service = UserService.getInstance();
-        service.login(id, pw);
+        if(service.login(id, pw)==false)
+        {
+
+            System.out.println("로그인에 실패하였습니다.");
+        };
+
     }
 
     private static void signup(Scanner sc) throws SQLException {

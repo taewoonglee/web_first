@@ -16,6 +16,7 @@ public class UserRepository {
         String sql = "select * from users where username = ? and password = ? ";
         Integer id1 = null;
         String name= null;
+        boolean ret=false;
         try {
             PreparedStatement psmt = conn.prepareStatement(sql);
             psmt.setString(1,id);
@@ -23,6 +24,7 @@ public class UserRepository {
             ResultSet resultSet =psmt.executeQuery();
             while(resultSet.next())
             {
+                ret=true;
                id1=  resultSet.getInt("id");
                name = resultSet.getString("name");
                me = new Me(id1,name);
@@ -37,7 +39,7 @@ public class UserRepository {
         } catch (SQLException e) {
             System.out.println("conn 닫기 실패");
         }
-        return id!=null;
+        return ret;
 
 
     }
