@@ -20,6 +20,7 @@ public class LegacyServlet extends HttpServlet {
             list.add(i);
         }
         super.init();
+        //수정
     }
 
     @Override
