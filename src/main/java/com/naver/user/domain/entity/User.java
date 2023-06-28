@@ -5,18 +5,7 @@ public class User {
     private String username;
     private String password;
     private String name;
-    private String createAt;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", createAt='" + createAt + '\'' +
-                '}';
-    }
+    private String create_At;
 
     public Integer getId() {
         return id;
@@ -50,20 +39,20 @@ public class User {
         this.name = name;
     }
 
-    public String getCreateAt() {
-        return createAt;
+    public String getCreate_At() {
+        return create_At;
     }
 
-    public void setCreateAt(String createAt) {
-        this.createAt = createAt;
+    public void setCreate_At(String create_At) {
+        this.create_At = create_At;
     }
 
-    public User(Integer id, String username, String password, String name, String createAt) {
+    public User(Integer id, String username, String password, String name, String create_At) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
-        this.createAt = createAt;
+        this.create_At = create_At;
     }
 
     public User() {

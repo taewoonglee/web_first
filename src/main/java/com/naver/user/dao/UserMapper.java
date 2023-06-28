@@ -1,4 +1,5 @@
 package com.naver.user.dao;
+
 import com.naver.user.domain.entity.TodoJoinUser;
 import com.naver.user.domain.entity.User;
 import com.naver.user.domain.request.LoginRequest;
@@ -8,18 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class TodoMapper {
+public class UserMapper {
     private final SqlSessionTemplate sessionTemplate;
 
-    public TodoMapper(SqlSessionTemplate sessionTemplate) {
+    public UserMapper(SqlSessionTemplate sessionTemplate) {
         this.sessionTemplate = sessionTemplate;
     }
-
-    public List<TodoJoinUser> findAll(){
-        return sessionTemplate.selectList("todo.findAll");
-    }
-
-    public List<TodoJoinUser> findByKeyword(String keyword){
-        return sessionTemplate.selectList("todo.findByKeyword","%"+keyword+"%");
+    public User login(LoginRequest loginRequest){
+        return sessionTemplate.selectOne("user.login",loginRequest);
     }
 }

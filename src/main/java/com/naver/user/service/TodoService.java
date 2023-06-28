@@ -27,6 +27,6 @@ public class TodoService {
 
     }
     public List<TodoJoinUser> findByKeyword(String keyword){
-        return null;
+        return todoMapper.findByKeyword(keyword);
     }
 }
