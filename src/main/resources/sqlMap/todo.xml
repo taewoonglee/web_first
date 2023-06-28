@@ -3,6 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="todo">
+<!--    <insert id="insertContent" useGeneratedKeys="true"-->
+<!--            keyProperty="id">-->
+<!--        insert into todos(username,password,name)-->
+<!--        values(#{id},#{pw},#{name})-->
+<!--    </insert>-->
     <select id="findAll" resultType="TodoJoinUser">
         select t.id, t.create_at, t.content,t.checked,u.name,u.id uid,t.heart
         from todos as t
@@ -16,4 +21,9 @@
         on t.user_id = u.id
         where content like #{keyword}
     </select>
+    <update id="changeContent">
+        update todos
+        set content =#{content}
+        where id = #{id} and user_id=#{user_id}
+    </update>
 </mapper>

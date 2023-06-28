@@ -31,7 +31,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean signup(SignupRequest request) {
-        return userDao.signup(request) != 0;
+    public Integer signup(SignupRequest request) {
+        return userMapper.signup(request);
     }
+
+//    @Override
+//    public boolean signup(SignupRequest request) {
+//        return userDao.signup(request) != 0;
+//    }
 }

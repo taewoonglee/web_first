@@ -10,16 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42df2fdd-faa3-4ec5-a2d2-2a5e234d23a9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b7d05103-8b4a-428e-a692-5d2d46ff1b2d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b7d05103-8b4a-428e-a692-5d2d46ff1b2d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/TodoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/TodoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/TodoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/TodoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/TodoRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/TodoRowMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/domain/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/UserRowMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/dao/UserRowMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/domain/dto/Todo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/domain/dto/TodoJoinUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/domain/dto/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/service/TodoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/naver/user/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/naver/user/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config/mybatisConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/mybatisConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sqlMap/todo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlMap/todo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlMap/user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlMap/user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/todolist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/todolist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/todoupdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/todo/todoupdate.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,11 +202,22 @@
       <workItem from="1687738749392" duration="50546000" />
       <workItem from="1687859621783" duration="121000" />
       <workItem from="1687859758617" duration="101000" />
-      <workItem from="1687859880843" duration="19896000" />
+      <workItem from="1687859880843" duration="42771000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

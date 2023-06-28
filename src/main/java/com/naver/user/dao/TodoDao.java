@@ -1,6 +1,6 @@
 package com.naver.user.dao;
 
-import com.naver.user.domain.dto.TodoJoinUser;
+import com.naver.user.domain.entity.TodoJoinUser;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -52,9 +52,10 @@ public class TodoDao {
     }
     public Integer insert(int uid,  String content)
     {
-        String sql = "insert into todos(user_id, content) values (?,?)";
+        int checked=0;
+        String sql = "insert into todos(user_id, content,checked) values (?,?,?)";
         return jdbcTemplate.update(sql
-                , uid,  content);
+                , uid,  content,checked);
 
     }
     public List<TodoJoinUser> findKeyword(String keyword){

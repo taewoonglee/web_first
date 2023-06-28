@@ -6,5 +6,5 @@ import com.naver.user.domain.request.SignupRequest;
 
 public interface UserService {
     User login(LoginRequest request);
-    boolean signup(SignupRequest request);
+    Integer signup(SignupRequest request);
 }

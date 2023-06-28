@@ -8,6 +8,9 @@
                    alias="TodoJoinUser"/>
         <typeAlias type="com.naver.user.domain.entity.User"
                    alias="User"/>
+        <typeAlias type="com.naver.user.domain.request.UpdateRequest"
+                   alias="UpdateRequest"/>
+
 <!--        <typeAlias type="com.naver.user.domain.request.LoginRequest"-->
 <!--                   alias="LoginRequest"/>-->
     </typeAliases>

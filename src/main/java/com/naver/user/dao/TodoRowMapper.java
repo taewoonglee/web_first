@@ -1,8 +1,8 @@
-package com.naver.user.dao;
-
-import com.naver.user.domain.dto.Todo;
-import com.naver.user.domain.dto.TodoJoinUser;
-import com.naver.user.domain.dto.User;
+//package com.naver.user.dao;
+//
+//import com.naver.user.domain.dto.Todo;
+//import com.naver.user.domain.dto.TodoJoinUser;
+//import com.naver.user.domain.dto.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

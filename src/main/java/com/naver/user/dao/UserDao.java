@@ -1,6 +1,6 @@
 package com.naver.user.dao;
 
-import com.naver.user.domain.dto.User;
+import com.naver.user.domain.entity.User;
 import com.naver.user.domain.request.SignupRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -39,5 +39,7 @@ public class UserDao {
         return jdbcTemplate.update(sql
                 , request.getId(), request.getPw(), request.getName());
     }
+
+
 
 }

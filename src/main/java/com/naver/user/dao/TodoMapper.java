@@ -1,7 +1,9 @@
 package com.naver.user.dao;
 import com.naver.user.domain.entity.TodoJoinUser;
 import com.naver.user.domain.entity.User;
+import com.naver.user.domain.request.ChangeRequest;
 import com.naver.user.domain.request.LoginRequest;
+import com.naver.user.domain.request.UpdateRequest;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -21,5 +23,9 @@ public class TodoMapper {
 
     public List<TodoJoinUser> findByKeyword(String keyword){
         return sessionTemplate.selectList("todo.findByKeyword","%"+keyword+"%");
+    }
+    public Integer changeContent(UpdateRequest request)
+    {
+        return sessionTemplate.update("todo.changeContent",request);
     }
 }
