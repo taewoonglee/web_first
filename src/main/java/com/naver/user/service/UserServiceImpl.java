@@ -12,12 +12,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    List<User> users = new ArrayList<>();
 
-    //    public UserServiceImpl() {
-//        users.add(new User("id","123"));
-//        users.add(new User("id1","123"));
-//    }
     @Autowired
     private UserDao userDao;
     @Override

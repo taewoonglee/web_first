@@ -1,7 +1,7 @@
 package com.naver.user.controller;
 
 
-import com.naver.user.domain.dto.TodoJoinUser;
+import com.naver.user.domain.entity.TodoJoinUser;
 import com.naver.user.domain.dto.User;
 import com.naver.user.domain.request.LoginRequest;
 import com.naver.user.service.TodoService;
@@ -31,7 +31,7 @@ public class MainController {
         if(keyword!=null&& !keyword.equals(""))
         {
             List<TodoJoinUser> bykeyword = todoService.findByKeyword(keyword);
-            modelAndView.addObject("todolist",keyword);
+            modelAndView.addObject("todolist",bykeyword);
         }
         else {
 
@@ -43,7 +43,8 @@ public class MainController {
     }
     @PostMapping("/todo/main")
     public ModelAndView postMain(
-            @ModelAttribute LoginRequest request,@RequestParam(value = "content") String content
+            @ModelAttribute LoginRequest request,@RequestParam(value = "content") String content,
+            @RequestParam(value = "keyword",required = false) String keyword
             , ModelAndView mav
             , HttpSession session
     ){
@@ -52,6 +53,11 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("todolist",todoService.insert(id,content));
         mav.setViewName("redirect:/todo/main");
+        if(keyword!=null&& !keyword.equals(""))
+        {
+            List<TodoJoinUser> bykeyword = todoService.findByKeyword(keyword);
+            modelAndView.addObject("todolist",bykeyword);
+        }
 
         //mav.setViewName("redirect:/main?err=not_insert
         //mav.addObject("err","not_insert");

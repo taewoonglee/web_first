@@ -46,7 +46,8 @@ public class TodoDao {
                         rs.getString("create_at"),
                         rs.getBoolean("checked"),
                         rs.getString("name"),
-                        rs.getInt("uid")
+                        rs.getInt("uid"),
+                        null
                 );
     }
     public Integer insert(int uid,  String content)

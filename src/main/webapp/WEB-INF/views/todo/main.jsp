@@ -42,7 +42,7 @@
         <input type="submit">
     </form>
 </div>
-<form action="/todo/main" method="get">
+<form action="/todo/main" method="post">
 
     <input type="text" name="keyword" placeholder="찾고싶은 단어를 입력하세요">
     <input type="submit" value="검색">

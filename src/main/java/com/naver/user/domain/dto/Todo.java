@@ -1,50 +1,67 @@
 package com.naver.user.domain.dto;
 
 public class Todo {
-    private int id;
-    private String username;
-    private String password;
-    private String name;
+    private Integer id;
+    private String content;
+    private String createAt;
+    private boolean checked;
+    private Integer userId;
+    private Integer heart;
 
-    public Todo(int id, String username, String password, String name) {
+    public Todo(Integer id, String content, String createAt, boolean checked, Integer userId, Integer heart) {
         this.id = id;
-        this.username = username;
-        this.password = password;
-        this.name = name;
+        this.content = content;
+        this.createAt = createAt;
+        this.checked = checked;
+        this.userId = userId;
+        this.heart = heart;
     }
 
-    public Todo() {
-    }
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getContent() {
+        return content;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getPassword() {
-        return password;
+    public String getCreateAt() {
+        return createAt;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
     }
 
-    public String getName() {
-        return name;
+    public boolean isChecked() {
+        return checked;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getHeart() {
+        return heart;
+    }
+
+    public void setHeart(Integer heart) {
+        this.heart = heart;
     }
 }

@@ -23,7 +23,5 @@ public class JdbcConfig {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         return dataSource;
-
-
     }
 }
