@@ -10,6 +10,7 @@
 <body>
 <h1>${name} 환영합니다.</h1>
 <a href="/user/login">돌아가기</a>
+<a href="/user/change">변경하기</a>
 <div>
     <form action="/todo/main" method="post">
         <input type="text" name="content" placeholder="content를 추가합니다">
@@ -44,6 +45,13 @@
                     </a>
                 </td>
             </c:if>
+                <td>
+                    <form method="post" action="/todo/like">
+                        <input type="hidden" name="todoid" value="${todo.id}">
+                        <input type="submit" value = "${todo.heart}">
+                    </form>
+                    </a>
+                </td>
         </tr>
     </c:forEach>
     <%--<%--%>

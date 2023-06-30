@@ -26,4 +26,32 @@
         set content =#{content}
         where id = #{id} and user_id=#{user_id}
     </update>
+
+    <insert id="insertHeart" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into hearts(uid,tid)
+        from users as u
+        inner join todos as j
+        values(#{u.id},#{j.id})
+    </insert>
+    <update id="setHeart">
+        update todos
+        set heart =#{heart}
+        where id=#{id}
+    </update>
+    <select id = "getHeart">
+        select heart
+        from todos
+        where id=#{id}
+    </select>
+    <select id="checkHeart">
+        select uid, tid
+        from hearts
+        where uid=#{uid} and tid=#{tid}
+    </select>
+    <update id="setTodoHeart">
+        update todos
+        set heart =heart+#{heart}
+        where id=#{id}
+    </update>
 </mapper>

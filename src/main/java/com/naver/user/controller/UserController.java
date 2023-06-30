@@ -1,8 +1,11 @@
 package com.naver.user.controller;
 import com.naver.user.domain.entity.User;
+import com.naver.user.domain.request.GetRequest;
 import com.naver.user.domain.request.LoginRequest;
+import com.naver.user.domain.request.RenameRequest;
 import com.naver.user.domain.request.SignupRequest;
 import com.naver.user.service.UserService;
+import com.naver.user.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;

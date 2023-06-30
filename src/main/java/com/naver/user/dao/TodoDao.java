@@ -59,6 +59,10 @@ public class TodoDao {
 
     }
     public List<TodoJoinUser> findKeyword(String keyword){
+        if(keyword!=null&& !keyword.equals(""))
+        {
+
+        }
         String sql = "select\n" +
                 "    t.id,\n" +
                 "    t.create_at ,\n" +

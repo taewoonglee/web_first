@@ -2,6 +2,7 @@ package com.naver.user.dao;
 
 import com.naver.user.domain.entity.User;
 import com.naver.user.domain.request.LoginRequest;
+import com.naver.user.domain.request.RenameRequest;
 import com.naver.user.domain.request.SignupRequest;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -19,5 +20,9 @@ public class UserMapper {
     public int signup(SignupRequest signupRequest)
     {
         return(sessionTemplate.insert("user.signup",signupRequest));
+    }
+    public int changeUserInfo(RenameRequest request)
+    {
+        return(sessionTemplate.update("user.changeUserInfo",request));
     }
 }
