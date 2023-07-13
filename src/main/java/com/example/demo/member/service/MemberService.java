@@ -43,6 +43,6 @@ public class MemberService {
         Member member = em.find(Member.class, id);
         member.setAge(request.age());
         member.setName(request.name());
-        return new MemberResponse(member);
+        return MemberResponse.from(member);
     }
 }

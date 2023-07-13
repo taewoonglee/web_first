@@ -2,6 +2,7 @@ package com.example.demo.hobby.service;
 
 import com.example.demo.hobby.domain.entity.Hobby;
 import com.example.demo.hobby.domain.response.HobbyResponse;
+import com.example.demo.member.domain.entity.Member;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,8 @@ public class HobbyService {
 
 
     public void save(String name){
-        Hobby hobby = new Hobby(null, name);
+        Hobby hobby = new Hobby(null, name,
+                new Member(1l,null,null,null));
         em.persist(hobby);
         System.out.println(hobby.getId());
     }

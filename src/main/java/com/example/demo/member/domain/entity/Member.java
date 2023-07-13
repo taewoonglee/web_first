@@ -1,7 +1,11 @@
 package com.example.demo.member.domain.entity;
 
+import com.example.demo.hobby.domain.entity.Hobby;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor @AllArgsConstructor
@@ -12,4 +16,6 @@ public class Member {
     private Long id;
     private String name;
     private Integer age;
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<Hobby> hobbies;
 }
