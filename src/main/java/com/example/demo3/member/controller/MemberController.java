@@ -2,25 +2,36 @@ package com.example.demo3.member.controller;
 
 
 import com.example.demo3.hobby.domain.entity.Member;
+import com.example.demo3.hobby.domain.entity.MemberHobby;
 import com.example.demo3.hobby.domain.request.HobbyRequest;
 import com.example.demo3.hobby.domain.request.MemberRequest;
 import com.example.demo3.hobby.domain.request.WordRequest;
+import com.example.demo3.hobby.response.MemberResponse;
 import com.example.demo3.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/member")
 public class MemberController {
     private final MemberService memberService;
+//    @GetMapping
+//    public List<Member> findAllMember()
+//    {
+//        return memberService.findAllMember();
+//    }
+//    @GetMapping
+//    public List<MemberResponse> findAll()
+//    {
+//        return memberService.findAll();
+//    }
     @GetMapping
-    public List<Member> findAllMember()
+    public List<MemberResponse> findAll(@RequestParam (name ="name",required = false,defaultValue = "") String name)
     {
-        return memberService.findAllMember();
+        return memberService.findAll(name);
     }
+
     @GetMapping("{id}")
     public Member findMember(@PathVariable("id") Long id)
     {
@@ -48,4 +59,17 @@ public class MemberController {
     {
         return memberService.selectNameByMember(request);
     }
+    @GetMapping("/connect")
+    public List<MemberHobby> connectMemberHobby()
+    {
+
+        return memberService.connectMemberHobby();
+    }
+//    @GetMapping("/memberhobby")
+//    public List<MemberHobby> allMembetHobby()
+//    {
+//        return memberService.allMemberHobby();
+//    }
+
+
 }

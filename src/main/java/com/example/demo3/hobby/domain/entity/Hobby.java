@@ -1,6 +1,7 @@
 package com.example.demo3.hobby.domain.entity;
 
 
+import com.example.demo3.hobby.domain.request.HobbyRequest;
 import jakarta.persistence.*;
 import lombok.*;
 //jakarta.persistence api
@@ -17,8 +18,11 @@ public class Hobby {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @ManyToOne
+    private Member member;
 
-    public Hobby(String name) {
-        this.name = name;
+    public Hobby(HobbyRequest request,Member member) {
+        this.name = request.getName();
+        this.member = member;
     }
 }
