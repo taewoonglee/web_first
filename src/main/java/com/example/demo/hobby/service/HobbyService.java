@@ -1,8 +1,10 @@
 package com.example.demo.hobby.service;
 
 import com.example.demo.hobby.domain.entity.Hobby;
+import com.example.demo.hobby.domain.request.HobbyRequest;
 import com.example.demo.hobby.domain.response.HobbyResponse;
 import com.example.demo.member.domain.entity.Member;
+import com.example.demo.member.domain.request.MemberRequest;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,9 +19,9 @@ public class HobbyService {
     private final EntityManager em;
 
 
-    public void save(String name){
-        Hobby hobby = new Hobby(null, name,
-                new Member(1l,null,null,null));
+    public void save(HobbyRequest request){
+        Hobby hobby = new Hobby(null, request.getName(),
+                new Member(request.getMemberId(),null,null,null));
         em.persist(hobby);
         System.out.println(hobby.getId());
     }

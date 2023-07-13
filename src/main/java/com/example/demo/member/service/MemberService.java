@@ -26,9 +26,14 @@ public class MemberService {
         return new MemberResponse(member);
     }
 
-    public List<MemberResponse> findAll(){
+    public List<MemberResponse> findAll(String name){
         return em
-                .createQuery("select m from Member m", Member.class)
+                .createQuery(
+                        "select m from Member m " +
+                        "left join fetch m.hobbies " +
+                                "where m.name like :name"
+                        , Member.class)
+                .setParameter("name", "%"+name+"%")
                 .getResultList()
                 .stream()
                 .map(MemberResponse::new)
@@ -43,6 +48,6 @@ public class MemberService {
         Member member = em.find(Member.class, id);
         member.setAge(request.age());
         member.setName(request.name());
-        return MemberResponse.from(member);
+        return new MemberResponse(member);
     }
 }

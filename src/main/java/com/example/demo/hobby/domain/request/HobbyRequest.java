@@ -9,9 +9,5 @@ import lombok.Getter;
 @Getter
 public class HobbyRequest {
     private String name;
-    public Hobby toEntity(){
-        return new Hobby(null,
-                name,
-                new Member(1l,null,null,null));
-    }
+    private Long memberId;
 }

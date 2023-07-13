@@ -14,8 +14,11 @@ import java.util.List;
 public class MemberController {
     private final MemberService service;
     @GetMapping
-    public List<MemberResponse> getAll(){
-        return service.findAll();
+    public List<MemberResponse> getAll(
+            @RequestParam(name = "name",
+                    required = false,
+                    defaultValue = "") String name){
+        return service.findAll(name);
     }
     @GetMapping("{id}")
     public MemberResponse getById(@PathVariable("id") Long id){
