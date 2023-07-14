@@ -6,6 +6,8 @@ import com.example.demo.hobby.domain.request.HobbyRequest;
 import com.example.demo.hobby.domain.response.HobbyResponse;
 import com.example.demo.hobby.service.HobbyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,10 +27,10 @@ public class HobbyController {
     public HobbyResponse getById(@PathVariable("id") Long id){
         return service.findById(id);
     }
-    @GetMapping
-    public List<HobbyResponse> getAll(){
-        return service.findAll();
-    }
+//    @GetMapping
+//    public List<HobbyResponse> getAll(){
+//        return service.findAll();
+//    }
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable("id") Long id){
@@ -39,5 +41,13 @@ public class HobbyController {
     public void connect(@RequestBody ConnectRequest request){
         service.connect(request);
     }
-
+    @GetMapping
+    public Page<HobbyResponse> getAllHobby(@RequestParam (name="size",
+                                           required = false,
+                                           defaultValue = "5") Integer size,
+                                           @RequestParam (name="page",required = false,defaultValue = "0")Integer page)
+    {
+        PageRequest pageRequest = PageRequest.of(page,size);
+        return service.findAll(pageRequest);
+    }
 }
