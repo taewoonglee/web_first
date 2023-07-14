@@ -8,13 +8,16 @@ import com.example.demo3.hobby.domain.request.ConnectRequest;
 import com.example.demo3.hobby.domain.request.MemberRequest;
 import com.example.demo3.hobby.domain.request.WordRequest;
 import com.example.demo3.hobby.response.MemberResponse;
+import com.example.demo3.member.repository.MemberRepository;
 import com.example.demo3.store.Store;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.demo3.store.Store.memberHobbyList;
 import static com.example.demo3.store.Store.memberList;
@@ -22,21 +25,26 @@ import static com.example.demo3.store.Store.memberList;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MemberService {
     private final EntityManager em;
+    private final MemberRepository memberRepository;
     @Transactional
     public void save(MemberRequest request)
     {
         Member member = new Member(request.getName(), request.getAge());
         em.persist(member);
-        Store.memberList.add(member);
+        log.info("SAVED ID : {}",String.valueOf(member.getId()));
 }
 
     @Transactional
-    public Member findById(Long id)
+    public MemberResponse findById(Long id)
     {
-        Member member=em.find(Member.class,id);
-        return member;
+//        Member member=em.find(Member.class,id);
+        Optional<Member> byId =  memberRepository.findById(id);
+        Member member = byId.orElseThrow(()-> new RuntimeException("Not Found id"));
+
+        return new MemberResponse(member);
 
     }
     @Transactional
@@ -64,19 +72,20 @@ public class MemberService {
 //        Member member =findById(id);
         return memberList;
     }
-    @Transactional
-    public List<Member> updateMember(Long id,MemberRequest request)
-    {
-        Integer req_Age = request.getAge();
-        String req_Name = request.getName();
-        String query = "update Member set name=:name, age=:age where id =:id";
-        em.createQuery(query).
-                setParameter("name",req_Name).
-                setParameter("age",req_Age).
-                setParameter("id",id)
-                .executeUpdate();
-        return memberList;
-    }
+
+//    @Transactional
+//    public List<Member> updateMember(Long id,MemberRequest request)
+//    {
+//        Integer req_Age = request.getAge();
+//        String req_Name = request.getName();
+//        String query = "update Member set name=:name, age=:age where id =:id";
+//        em.createQuery(query).
+//                setParameter("name",req_Name).
+//                setParameter("age",req_Age).
+//                setParameter("id",id)
+//                .executeUpdate();
+//        return memberList;
+//    }
     @Transactional
     public List<Member> selectNameByMember(WordRequest request)
     {
@@ -126,4 +135,23 @@ public class MemberService {
                 map(MemberResponse::new).
                 toList();
     }
+    public void del(Long id){
+        memberRepository.deleteById(id);
+    }
+    public void insert(Member member)
+    {
+        Member save = memberRepository.save(member);
+        log.info("SAVED ID : {}",String.valueOf(save.getId()));
+    }
+    @Transactional
+    public List<Member> updateMember(Long id,MemberRequest request)
+    {
+        Member member= memberRepository.findById(id).orElseThrow(()->new RuntimeException("new foundd member by"+id));
+        member.setAge(request.getAge());
+        member.setName(request.getName());
+        memberRepository.save(member);
+
+        return memberList;
+    }
+
 }

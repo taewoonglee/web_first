@@ -7,22 +7,22 @@ import lombok.*;
 
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="memberhobby")
 public class MemberHobby {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Hobby hobby;
 
     public MemberHobby(Member member, Hobby hobby) {
         this.member = member;
         this.hobby = hobby;
-    }
-
-    public MemberHobby() {
-
     }
 }

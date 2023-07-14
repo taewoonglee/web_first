@@ -2,6 +2,7 @@ package com.example.demo3.hobby.response;
 
 import com.example.demo3.hobby.domain.entity.Hobby;
 import com.example.demo3.hobby.domain.entity.Member;
+import com.example.demo3.hobby.domain.entity.MemberHobby;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,11 @@ public class MemberResponse {
         this.id = member.getId();
         this.name = member.getName();
         this.age = member.getAge();
-       this.hobbies=member.getHobbies().stream().map(HobbyDto::new).toList();
+       this.hobbies=member.getHobbies()
+               .stream()
+               .map(d->d.getHobby())
+               .map(h->new HobbyDto(h))
+               .toList();
     }
     @Getter
     @AllArgsConstructor

@@ -2,6 +2,7 @@ package com.example.demo3.hobby.controller;
 
 
 import com.example.demo3.hobby.domain.entity.Hobby;
+import com.example.demo3.hobby.domain.request.ConnectRequest;
 import com.example.demo3.hobby.domain.request.HobbyRequest;
 import com.example.demo3.hobby.response.HobbyResponse;
 import com.example.demo3.hobby.response.MemberResponse;
@@ -44,6 +45,11 @@ public class HobbyController {
     {
         service.updateHobby(id,request);
     }
+//    @PostMapping("/connect")
+//    public void connect(@RequestBody ConnectRequest request)
+//    {
+//        service.connect(request);
+//    }
 //    @GetMapping
 //    public List<MemberResponse> getAll(@RequestParam(name="name",required = false,defaultValue = "") String name){
 //        return service.findAll(name);

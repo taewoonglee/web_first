@@ -9,7 +9,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class ConnectRequest {
-    private Member member;
-    private Hobby hobby;
+    private Long memberId;
+    private Long hobbyId;
+
 
 }

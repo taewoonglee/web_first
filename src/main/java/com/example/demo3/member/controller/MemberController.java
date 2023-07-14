@@ -33,7 +33,7 @@ public class MemberController {
     }
 
     @GetMapping("{id}")
-    public Member findMember(@PathVariable("id") Long id)
+    public MemberResponse findMember(@PathVariable("id") Long id)
     {
         return memberService.findById(id);
     }
