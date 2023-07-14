@@ -5,6 +5,8 @@ import com.example.demo.member.domain.response.MemberResponse;
 import com.example.demo.member.service.MemberService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -14,11 +16,19 @@ import java.util.List;
 public class MemberController {
     private final MemberService service;
     @GetMapping
-    public List<MemberResponse> getAll(
+    public Page<MemberResponse> getAll(
             @RequestParam(name = "name",
                     required = false,
-                    defaultValue = "") String name){
-        return service.findAll(name);
+                    defaultValue = "") String name,
+            @RequestParam(name="size",
+            required = false,
+            defaultValue = "5") Integer size,
+            @RequestParam(name="page",
+                    required = false,
+                    defaultValue = "0") Integer page
+            ){
+        PageRequest request = PageRequest.of(page, size);
+        return service.findAll(name, request);
     }
     @GetMapping("{id}")
     public MemberResponse getById(@PathVariable("id") Long id){

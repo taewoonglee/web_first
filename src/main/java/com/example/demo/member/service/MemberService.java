@@ -7,6 +7,10 @@ import com.example.demo.member.repository.MemberRepository;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,13 +39,12 @@ public class MemberService {
         return new MemberResponse(member);
     }
 
-    public List<MemberResponse> findAll(String name){
+    public Page<MemberResponse> findAll(String name, PageRequest request){
 //        return memberRepository.findAllFetchByNameContainingToResponse("%"+name+"%");
-        List<Member> all = memberRepository
-                .findAllFetchByNameContaining("%" + name + "%");
-        return all.stream()
-                .map(MemberResponse::new)
-                .toList();
+        Page<Member> all = memberRepository
+                .findAllByNameContaining(name , request);
+        return all.map(MemberResponse::new);
+
 //        return em
 //                .createQuery(
 //                        "select m from Member m " +
