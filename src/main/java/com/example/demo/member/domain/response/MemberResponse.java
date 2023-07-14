@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,11 +20,13 @@ public class MemberResponse {
         this.id = member.getId();
         this.age = member.getAge();
         this.name = member.getName();
-        this.hobbies = member.getHobbies()
+        this.hobbies = member.getHobbies() != null ?
+                member.getHobbies()
                 .stream()
                 .map(h-> new HobbyDto(h.getHobby()))
 //                .map(h-> new HobbyDto(h))
-                .toList();
+                .toList()
+                : new ArrayList<>();
     }
     @Getter @AllArgsConstructor
     class HobbyDto{
