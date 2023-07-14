@@ -21,7 +21,8 @@ public class MemberResponse {
         this.name = member.getName();
         this.hobbies = member.getHobbies()
                 .stream()
-                .map(HobbyDto::new)
+                .map(h-> new HobbyDto(h.getHobby()))
+//                .map(h-> new HobbyDto(h))
                 .toList();
     }
     @Getter @AllArgsConstructor

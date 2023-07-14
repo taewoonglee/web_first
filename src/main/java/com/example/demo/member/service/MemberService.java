@@ -30,7 +30,8 @@ public class MemberService {
         return em
                 .createQuery(
                         "select m from Member m " +
-                        "left join fetch m.hobbies " +
+                        "left join fetch m.hobbies h " +
+                                "join fetch h.hobby " +
                                 "where m.name like :name"
                         , Member.class)
                 .setParameter("name", "%"+name+"%")

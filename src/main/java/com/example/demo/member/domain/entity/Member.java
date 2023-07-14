@@ -1,6 +1,7 @@
 package com.example.demo.member.domain.entity;
 
 import com.example.demo.hobby.domain.entity.Hobby;
+import com.example.demo.store.MemberHobby;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,5 +18,5 @@ public class Member {
     private String name;
     private Integer age;
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
-    private List<Hobby> hobbies;
+    private List<MemberHobby> hobbies;
 }
