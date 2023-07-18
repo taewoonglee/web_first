@@ -2,10 +2,21 @@ package com.example.demo.hobby;
 
 import com.example.demo.member.Member;
 
-public record HobbyRequest(String name,Member member) {
-    public Hobby toEntity(){
+public class HobbyRequest {
+    private final String name;
+    private final Integer memberId;
 
-        return new Hobby(name,member);
+    public HobbyRequest(String name, Integer memberId) {
+        this.name = name;
+        this.memberId = memberId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getMemberId() {
+        return memberId;
     }
 }
 

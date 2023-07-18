@@ -4,12 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static java.util.Arrays.stream;
-
 @RestController
 @RequestMapping("users")
 public class DemoController {
@@ -21,10 +18,8 @@ public class DemoController {
         userList.add(new User("이태웅",26));
         userList.add(new User("정민균",28));
     }
-
     @GetMapping
     public List<User> test() throws InterruptedException
-
     {
         return userList;
     }

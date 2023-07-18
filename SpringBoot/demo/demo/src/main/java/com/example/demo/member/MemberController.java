@@ -1,5 +1,7 @@
 package com.example.demo.member;
 import com.example.demo.User;
+import com.example.demo.hobby.Hobby;
+import com.example.demo.hobby.HobbyResponse;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +18,7 @@ import static com.example.demo.store.Store.members;
 public class MemberController {
     private final MemberService memberService;
     @GetMapping
-    public List<Member> findAll(){
+    public List<MemberResponse> findAll(){
         return memberService.findAll();
     }
     @GetMapping("{id}")
@@ -44,7 +46,5 @@ public class MemberController {
         memlist = memberService.delete(id);
         return memlist;
     }
-
-
 
 }

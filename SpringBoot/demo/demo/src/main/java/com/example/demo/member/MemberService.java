@@ -1,30 +1,39 @@
 package com.example.demo.member;
 
+import com.example.demo.exception.MemberNotFound;
 import com.example.demo.hobby.Hobby;
 import com.example.demo.store.Store;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.example.demo.store.Store.memberIndex;
 import static com.example.demo.store.Store.members;
 
 @Service
 public class MemberService {
-    public List<Member> findAll(){
-        return members;
+    public List<MemberResponse> findAll(){
+        return members.stream().map(m->new MemberResponse(m)).toList();
     }
-    public Member findById(int id)
+    public Member findById(Integer id)
     {
         Member mem = new Member();
         for(int i=0;i<members.size();i++)
         {
             if(members.get(i).getId()==id)
             {
-                mem =members.get(i);
+                return members.get(i);
             }
         }
-        return mem;
+        Optional<Member> first = members.stream().filter(m->m.getId().equals(id)).findFirst();
+//        String i2=String.valueOf(id);
+//        first.orElse(new Member());
+//        Member member;
+////        if(first.isPresent()) member = first.get() ;
+//        first.orElseThrow(throw new Exception("ff"));
+//        Member member = first.orElseThrow(()->new MemberNotFound("사람을 못찾았어요","api",i2));
+        return null;
     }
 
     public void save(Member member){
