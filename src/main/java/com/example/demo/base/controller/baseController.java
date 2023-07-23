@@ -16,7 +16,7 @@ public class baseController {
 	@Autowired
 	CustomMessageService customMEssageService;
 
-	@GetMapping("/")
+	@GetMapping("app/login/kakao")
 	public String serviceStart(String code) {
 		if(authService.getKakaoAuthToken(code)) {
 			customMEssageService.sendMyMessage();
